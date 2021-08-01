@@ -2,3 +2,4 @@
 __pycache__
 .DS_Store
 examples/login/static/js/fastquery.js
+examples/login-with-swal/static/js/fastquery.js
