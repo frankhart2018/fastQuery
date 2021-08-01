@@ -24,4 +24,16 @@ $(document).ready(function() {
         }
     });
 
+    $("#login_with_redirect").click(function() {
+        var username = $("#username_with_redirect").val();
+        var password = $("#password_with_redirect").val();
+
+        if(username && password) {
+            data = {"username": username, "password": password};
+            simple_ajax_post_redirect("/login-with-redirect", data);
+        } else {
+            alert("Please enter username and password");
+        }
+    });
+
 });

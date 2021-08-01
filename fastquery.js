@@ -34,6 +34,16 @@ function simple_ajax_post_reload(url, data) {
     ajax_request(url, data, simple_ajax_reload_result_handler);
 }
 
+// Ajax post and redirect
+function simple_ajax_redirect_result_handler(result) {
+    alert(result.status);
+    window.location.href = result.url;
+}
+
+function simple_ajax_post_redirect(url, data) {
+    ajax_request(url, data, simple_ajax_redirect_result_handler);
+}
+
 /*
     With SweetAlert
 */
