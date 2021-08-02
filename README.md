@@ -13,3 +13,7 @@ Just download the file <a href="https://github.com/frankhart2018/fastQuery/blob/
 # Examples
 
 To get familiar with the syntax you can checkout the simple examples <a href="https://github.com/frankhart2018/fastQuery/tree/master/examples">here</a>.
+
+# License
+
+fastQuery is licensed under <a href="https://github.com/frankhart2018/fastQuery/blob/master/LICENSE">MIT License</a>.
