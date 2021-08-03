@@ -10,8 +10,13 @@ $(document).ready(function() {
         validate_and_post("/login", data, simple_ajax_post_reload);
     });
 
+    function is_correct_username(username) {
+        return username.length >= 8;
+    }
+
     $("#login_with_redirect").click(function() {
-        let data = {"username_with_redirect": ["empty"], "password_with_redirect": ["empty"]};
+        register_check_function("username", is_correct_username, " is not in proper format!");
+        let data = {"username_with_redirect": ["empty", "username"], "password_with_redirect": ["empty"]};
         validate_and_post("/login-with-redirect", data, simple_ajax_post_redirect);
     });
 
