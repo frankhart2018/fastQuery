@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
     $("#login").click(function() {
-        let data = {"username": ["empty"], "password": ["empty"]};
+        let data = {"username": ["empty", "email"], "password": ["empty"]};
         validate_and_post("/login", data, simple_ajax_post);
     });
 
     $("#login_with_reload").click(function() {
-        let data = {"username_with_reload": ["empty"], "password_with_reload": ["empty"]};
+        let data = {"username_with_reload": ["empty", "mobile"], "password_with_reload": ["empty"]};
         validate_and_post("/login", data, simple_ajax_post_reload);
     });
 

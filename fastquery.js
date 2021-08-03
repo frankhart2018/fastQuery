@@ -119,9 +119,15 @@ function is_valid_email(email_id) {
     return regex.test(email_id);
 }
 
+function is_valid_phone_number(phone_number) {
+    let is_all_num = /^\d+$/.test(phone_number);
+    return is_all_num && phone_number.length == 10;
+}
+
 let check_metadata = {
     "empty": [is_not_empty, " cannot be empty!"],
     "email": [is_valid_email, " is not a valid email address!"],
+    "mobile": [is_valid_phone_number, " is not a valid mobile number!"],
 };
 
 
@@ -146,12 +152,15 @@ function validate_and_post(url, data, ajax_post_function) {
     for(var field in data) {
         let field_checks = data[field];
         let value = $("#" + field).val();
-        field_checks.forEach(function(check, _) {
-            if(!run_check(check, value))
+        for(var check_num = 0; check_num < field_checks.length; check_num++) {
+            let check = field_checks[check_num];
+            if(!run_check(check, value)) {
                 error_string += start_line_token + field + check_metadata[check][1] + end_line_token;
-            else
+                break;
+            } else {
                 data_to_pass[field] = value;
-        });
+            }
+        };
     }
 
     if(is_not_empty(error_string)) {
