@@ -135,6 +135,10 @@ function run_check(check_str, value) {
     return check_metadata[check_str][0](value);
 }
 
+function register_check_function(check_str, check_func, error_message) {
+    check_metadata[check_str] = [check_func, error_message];
+}
+
 function validate_and_post(url, data, ajax_post_function) {
     var error_string = "";
     var data_to_pass = {};
