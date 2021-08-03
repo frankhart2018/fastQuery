@@ -1,5 +1,5 @@
 /*
-*   fastQuery - v0.1 - 03/08/2021
+*   fastQuery - v0.2 - 03/08/2021
 */
 
 
@@ -114,8 +114,14 @@ function is_not_empty(val) {
     return false;
 }
 
+function is_valid_email(email_id) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email_id);
+}
+
 let check_metadata = {
     "empty": [is_not_empty, " cannot be empty!"],
+    "email": [is_valid_email, " is not a valid email address!"],
 };
 
 
