@@ -139,7 +139,7 @@ function register_check_function(check_str, check_func, error_message) {
     check_metadata[check_str] = [check_func, error_message];
 }
 
-function validate_and_post(url, data, ajax_post_function) {
+function validate_and_post(url, data, ajax_post_function, unchecked_data_hook) {
     var error_string = "";
     var data_to_pass = {};
     let ajax_post_function_name = ajax_post_function.name;
@@ -166,6 +166,8 @@ function validate_and_post(url, data, ajax_post_function) {
             }
         };
     }
+
+    data_to_pass = {...data_to_pass, ...unchecked_data_hook};
 
     if(is_not_empty(error_string)) {
         if(ajax_post_function_name.startsWith("simple")) {
